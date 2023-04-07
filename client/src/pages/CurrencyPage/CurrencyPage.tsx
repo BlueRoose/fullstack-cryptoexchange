@@ -3,7 +3,6 @@ import styles from "./CurrencyPage.module.scss";
 import Header from "../../components/Header/Header";
 import { useCurrencies } from "../../hooks/useCurrencies";
 import { useParams } from "react-router-dom";
-import { getCurrencysHistory } from "../../api/currenciesRequests";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -18,11 +17,17 @@ import {
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import { Link } from "react-router-dom";
+import { trpc } from "../../trpc";
 
 interface History {
   priceUsd: string;
   time: number;
   date: string;
+}
+
+interface Data {
+  data: History[];
+  timestamp: number;
 }
 
 const CurrencyPage: FC = () => {
@@ -44,9 +49,12 @@ const CurrencyPage: FC = () => {
   );
 
   useEffect(() => {
-    getCurrencysHistory(currency?.id).then((hist) => {
-      setHistory(hist);
-    });
+    trpc.currency.getCurrencyHistory
+      .query(currency.id)
+      .then((data: Data) => {
+        setHistory(data.data);
+      })
+      .catch(console.error);
   }, [currency?.id]);
 
   const capitalize = () =>

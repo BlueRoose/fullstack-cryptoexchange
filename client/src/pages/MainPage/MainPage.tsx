@@ -49,8 +49,9 @@ const MainPage: FC = () => {
           <div className={styles.rows}>
             {currencies
               ?.slice(firstContentIndex, lastContentIndex)
-              .map((currency: Currencies) => (
+              .map((currency: Currencies, index) => (
                 <CurrencyRow
+                  key={index}
                   rank={currency.rank}
                   name={currency.symbol}
                   fullname={currency.id}

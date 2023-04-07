@@ -1,6 +1,11 @@
 import { createContext, FC, useEffect, useState } from "react";
-import { getCurrencies } from "../../api/currenciesRequests";
 import { Currencies, CurrenciesContextType, Props } from "./types";
+import { trpc } from "../../trpc";
+
+interface Data {
+  data: Currencies[];
+  timestamp: number;
+}
 
 export const CurrenciesContext = createContext<CurrenciesContextType>({
   currencies: [],
@@ -14,11 +19,14 @@ export const CurrenciesProvider: FC<Props> = ({ children }) => {
   const [isCurrenciesLoading, setIsCurrenciesLoading] = useState(true);
 
   useEffect(() => {
-    getCurrencies().then((currencies) => {
-      setCurrencies(currencies);
-      setIsCurrenciesLoading(false);
-      setTopThree(currencies.slice(0, 3));
-    });
+    trpc.currency.getCurrencies
+      .query()
+      .then((data: Data) => {
+        setCurrencies(data.data);
+        setIsCurrenciesLoading(false);
+        setTopThree(data.data.slice(0, 3));
+      })
+      .catch(console.error);
   }, []);
 
   const value = { currencies, isCurrenciesLoading, topThree };
