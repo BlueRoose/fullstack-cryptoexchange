@@ -1,0 +1,58 @@
+.currencyRow {
+  max-width: 1200px;
+  height: fit-content;
+  min-height: 40px;
+  background-color: #ffd600;
+  margin: 5px auto 5px auto;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 45px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+
+  a {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #000;
+
+    p {
+      width: 200px;
+      text-align: center;
+    }
+
+    .view {
+      display: flex;
+      align-self: center;
+      justify-content: center;
+    }
+
+    p:first-child {
+      width: 55px;
+    }
+  }
+
+  button {
+    font-size: 25px;
+    background-color: #ffd600;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hide {
+    display: none;
+  }
+}

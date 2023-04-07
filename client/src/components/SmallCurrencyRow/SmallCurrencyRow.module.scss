@@ -1,0 +1,26 @@
+.row {
+  width: 90%;
+  min-height: 35px;
+  margin: 0 auto 5px auto;
+  border-radius: 15px;
+  background-color: #ffd600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 20px;
+  box-sizing: border-box;
+  color: #000;
+
+  p span {
+    font-weight: bold;
+  }
+
+  button {
+    width: 20px;
+    background-color: #ffd600;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
