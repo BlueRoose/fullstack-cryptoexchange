@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "allowJs": false,
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
     "strict": true,
-    "target": "es2019"
-  }
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "declaration": true
+  },
+  "include": ["src/**/*"]
 }
