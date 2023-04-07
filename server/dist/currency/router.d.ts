@@ -1,11 +1,11 @@
-import type { Currency, HistoryItem } from "./types";
+import type { CurrenciesData, HistoryData } from "./types";
 declare const currencyRouter: import("@trpc/server").CreateRouterInner<import("@trpc/server").RootConfig<{
     ctx: {};
     meta: object;
     errorShape: import("@trpc/server").DefaultErrorShape;
     transformer: import("@trpc/server").DefaultDataTransformer;
 }>, {
-    getUsers: import("@trpc/server").BuildProcedure<"query", {
+    getCurrencies: import("@trpc/server").BuildProcedure<"query", {
         _config: import("@trpc/server").RootConfig<{
             ctx: {};
             meta: object;
@@ -18,7 +18,7 @@ declare const currencyRouter: import("@trpc/server").CreateRouterInner<import("@
         _output_in: typeof import("@trpc/server").unsetMarker;
         _output_out: typeof import("@trpc/server").unsetMarker;
         _meta: object;
-    }, Currency[]>;
+    }, CurrenciesData>;
     getCurrencyHistory: import("@trpc/server").BuildProcedure<"query", {
         _config: import("@trpc/server").RootConfig<{
             ctx: {};
@@ -32,6 +32,6 @@ declare const currencyRouter: import("@trpc/server").CreateRouterInner<import("@
         _input_out: string;
         _output_in: typeof import("@trpc/server").unsetMarker;
         _output_out: typeof import("@trpc/server").unsetMarker;
-    }, HistoryItem[]>;
+    }, HistoryData>;
 }>;
 export default currencyRouter;

@@ -16,3 +16,11 @@ export interface HistoryItem {
     priceUsd: string;
     time: number;
 }
+export interface CurrenciesData {
+    data: Currency[];
+    timestamp: number;
+}
+export interface HistoryData {
+    data: HistoryItem[];
+    timestamp: number;
+}

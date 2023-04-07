@@ -1,14 +1,12 @@
+import fetch from "cross-fetch";
 import { router, publicProcedure } from "../trpc.js";
-import type { Currency, HistoryItem } from "./types";
+import type { CurrenciesData, HistoryData } from "./types";
 import { TRPCError } from "@trpc/server";
 
 const currencyRouter = router({
-  getUsers: publicProcedure.query(() => {
-    let currencies: Currency[] = [];
-    fetch("https://api.coincap.io/v2/assets").then((responce) =>
-      responce.json().then((data) => (currencies = data.data))
-    );
-    return currencies;
+  getCurrencies: publicProcedure.query(async () => {
+    const currencies = await fetch("https://api.coincap.io/v2/assets");
+    return (await currencies.json()) as CurrenciesData;
   }),
 
   getCurrencyHistory: publicProcedure
@@ -20,16 +18,12 @@ const currencyRouter = router({
         message: `Invalid input: ${typeof id}`,
       });
     })
-    .query((req) => {
+    .query(async (req) => {
       const { input } = req;
-      let currencyHistory: HistoryItem[] = [];
-      fetch(
+      const currencyHistory = await fetch(
         `https://api.coincap.io/v2/assets/${input}/history?interval=d1`
-      ).then((responce) =>
-        responce.json().then((data) => (currencyHistory = data.data))
       );
-
-      return currencyHistory;
+      return (await currencyHistory.json()) as HistoryData;
     }),
 });
 

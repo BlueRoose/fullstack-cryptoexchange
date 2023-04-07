@@ -10,7 +10,7 @@ declare const appRouter: import("@trpc/server").CreateRouterInner<import("@trpc/
         errorShape: import("@trpc/server").DefaultErrorShape;
         transformer: import("@trpc/server").DefaultDataTransformer;
     }>, {
-        getUsers: import("@trpc/server").BuildProcedure<"query", {
+        getCurrencies: import("@trpc/server").BuildProcedure<"query", {
             _config: import("@trpc/server").RootConfig<{
                 ctx: {};
                 meta: object;
@@ -23,7 +23,7 @@ declare const appRouter: import("@trpc/server").CreateRouterInner<import("@trpc/
             _output_in: typeof import("@trpc/server").unsetMarker;
             _output_out: typeof import("@trpc/server").unsetMarker;
             _meta: object;
-        }, import("./currency/types.js").Currency[]>;
+        }, import("./currency/types.js").CurrenciesData>;
         getCurrencyHistory: import("@trpc/server").BuildProcedure<"query", {
             _config: import("@trpc/server").RootConfig<{
                 ctx: {};
@@ -37,7 +37,7 @@ declare const appRouter: import("@trpc/server").CreateRouterInner<import("@trpc/
             _input_out: string;
             _output_in: typeof import("@trpc/server").unsetMarker;
             _output_out: typeof import("@trpc/server").unsetMarker;
-        }, import("./currency/types.js").HistoryItem[]>;
+        }, import("./currency/types.js").HistoryData>;
     }>;
 }>;
 export default appRouter;
