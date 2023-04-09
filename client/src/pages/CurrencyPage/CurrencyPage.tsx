@@ -18,6 +18,7 @@ import { useYourCryptos } from "../../hooks/useYourCryptos";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import { Link } from "react-router-dom";
 import { trpc } from "../../trpc";
+import Button from "../../components/Button/Button";
 
 interface History {
   priceUsd: string;
@@ -35,7 +36,7 @@ const CurrencyPage: FC = () => {
   const { id } = useParams();
   const { setIsBuyWindowShowed, isBuyWindowShowed, setIsCaseShowed } =
     useYourCryptos();
-  const currency = currencies.filter((curr) => curr.symbol === id)[0];
+  const currency = currencies?.filter((curr) => curr.symbol === id)[0];
   const [history, setHistory] = useState<History[]>([]);
 
   ChartJS.register(
@@ -50,7 +51,7 @@ const CurrencyPage: FC = () => {
 
   useEffect(() => {
     trpc.currency.getCurrencyHistory
-      .query(currency.id)
+      .query(currency?.id)
       .then((data: Data) => {
         setHistory(data.data);
       })
@@ -111,7 +112,7 @@ const CurrencyPage: FC = () => {
       )}
       <Header />
       <Link to="/">
-        <button className={styles.back}>Go back</button>
+        <Button type="short">Go back</Button>
       </Link>
       {currency ? (
         <div className={styles.main}>
@@ -122,9 +123,9 @@ const CurrencyPage: FC = () => {
               1 {currency?.symbol} - {Number(currency?.priceUsd).toFixed(7)}{" "}
               USDT
             </p>
-            <button onClick={handleClickBuyButton}>
+            <Button type="long" onClick={handleClickBuyButton}>
               Buy {currency?.symbol}
-            </button>
+            </Button>
           </div>
           <div className={styles.graph}>
             <Line data={chartData} options={options} />

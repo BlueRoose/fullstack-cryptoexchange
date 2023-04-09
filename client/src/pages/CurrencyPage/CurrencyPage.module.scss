@@ -12,28 +12,6 @@
     z-index: 1;
   }
 
-  .back {
-    max-width: 100px;
-    height: 30px;
-    color: #000;
-    background-color: #ffd600;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 5px 5px 30px 5px;
-    cursor: pointer;
-    position: relative;
-    bottom: 3%;
-    left: 2%;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    transition: 0.3s linear;
-  }
-
-  .back:hover {
-    border-radius: 15px;
-  }
-
   .main {
     width: 100%;
     margin-top: 50px;
@@ -71,27 +49,6 @@
       p {
         font-size: 24px;
         font-weight: bold;
-      }
-
-      button {
-        width: 90%;
-        height: 30px;
-        background-color: #ffd600;
-        margin-top: 50px;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%, 0);
-        color: #000;
-        font-size: 18px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        transition: 0.3s linear;
-        cursor: pointer;
-
-        &:hover {
-          border-radius: 15px;
-        }
       }
 
       .disabledButton {

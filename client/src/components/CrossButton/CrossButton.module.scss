@@ -1,0 +1,48 @@
+.cross {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  color: #ffd600;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 91%;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.blackCross {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 91%;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.plus {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 1%;
+  cursor: pointer;
+}

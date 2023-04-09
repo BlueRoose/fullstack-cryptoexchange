@@ -6,6 +6,7 @@ import { useCurrencies } from "../../hooks/useCurrencies";
 import usePagination from "../../hooks/usePagination";
 import { Currencies } from "../../providers/Currencies/types";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
+import PaginationButton from "../../components/PaginationButton/PaginationButton";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 
 const MainPage: FC = () => {
@@ -64,19 +65,23 @@ const MainPage: FC = () => {
               ))}
           </div>
           <div className={styles.buttons}>
-            <button onClick={prevPage}>{"<"}</button>
+            <PaginationButton type="common" onClick={prevPage}>
+              {"<"}
+            </PaginationButton>
             {Array.from({ length: totalPages }, (_, index) => index + 1).map(
               (pg) => (
-                <button
-                  className={page === pg ? styles.active : ""}
+                <PaginationButton
+                  type={page === pg ? "active" : "common"}
                   key={pg}
                   onClick={() => setPage(pg)}
                 >
                   {pg}
-                </button>
+                </PaginationButton>
               )
             )}
-            <button onClick={nextPage}>{">"}</button>
+            <PaginationButton type="common" onClick={nextPage}>
+              {">"}
+            </PaginationButton>
           </div>
         </>
       ) : (

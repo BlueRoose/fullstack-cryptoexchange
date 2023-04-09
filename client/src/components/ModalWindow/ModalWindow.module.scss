@@ -26,16 +26,6 @@
       margin-left: -64px;
       font-size: 24px;
     }
-
-    .cross {
-      width: fit-content;
-      position: absolute;
-      left: 93%;
-      background-color: #272727;
-      color: #ffd600;
-      font-weight: bold;
-      cursor: pointer;
-    }
   }
 
   .buyArea {
@@ -66,26 +56,6 @@
 
     p:last-child {
       margin-bottom: 80px;
-    }
-  }
-
-  button {
-    width: 30%;
-    height: 30px;
-    background-color: #ffd600;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    transition: 0.3s linear;
-    cursor: pointer;
-
-    &:hover {
-      border-radius: 15px;
     }
   }
 }

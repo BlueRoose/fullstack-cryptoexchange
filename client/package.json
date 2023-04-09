@@ -26,12 +26,24 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -47,7 +59,19 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/blocks": "^7.0.2",
+    "@storybook/preset-create-react-app": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node-sass": "^4.11.3",
-    "node-sass": "^7.0.3"
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "node-sass": "^7.0.3",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.2",
+    "webpack": "^5.78.0"
   }
 }
