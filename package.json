@@ -2,16 +2,20 @@
   "name": "fullstack-cryptoexchange",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm start",
+    "cypress": "cypress open",
+    "test": "start-server-and-test start cypress",
     "client": "cd client && npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "cypress": "^12.9.0",
+    "start-server-and-test": "^2.0.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1"

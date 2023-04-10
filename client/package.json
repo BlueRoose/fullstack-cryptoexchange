@@ -28,6 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "storybook": "storybook dev -p 6006",
+    "cypress": "cypress open",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {
@@ -69,6 +70,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/node-sass": "^4.11.3",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "cypress": "^12.9.0",
     "node-sass": "^7.0.3",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.2",
