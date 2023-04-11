@@ -9,10 +9,23 @@ interface Props {
 
 const Button: FC<Props> = ({ children, type, onClick }) => {
   const checkType = () => {
-    if (type === "short") {
-      return styles.short;
-    } else {
-      return styles.long;
+    switch (type) {
+      case "short":
+        return styles.short;
+      case "long":
+        return styles.long;
+      case "cross":
+        return styles.cross;
+      case "blackCross":
+        return styles.blackCross;
+      case "plus":
+        return styles.plus;
+      case "active":
+        return styles.active;
+      case "common":
+        return styles.common;
+      default:
+        break;
     }
   };
   return (

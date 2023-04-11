@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./CurrencyRow.module.scss";
-import CrossButton from "../CrossButton/CrossButton";
+import Button from "../Button/Button";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,7 @@ const CurrencyRow: FC<Props> = ({
         <p className={styles.hide}>{volume}</p>
         <p className={styles.view}>{price}</p>
       </Link>
-      <CrossButton type="plus" onClick={handleAddButtonClick} />
+      <Button type="plus" onClick={handleAddButtonClick}>+</Button>
     </div>
   );
 };
