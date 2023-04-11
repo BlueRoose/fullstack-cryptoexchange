@@ -17,8 +17,8 @@ import {
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
 import { Link } from "react-router-dom";
-import { trpc } from "../../trpc";
 import Button from "../../components/Button/Button";
+import useTRPC from "../../hooks/useTRPC";
 
 interface History {
   priceUsd: string;
@@ -26,13 +26,9 @@ interface History {
   date: string;
 }
 
-interface Data {
-  data: History[];
-  timestamp: number;
-}
-
 const CurrencyPage: FC = () => {
   const { currencies } = useCurrencies();
+  const { getCurrencyHistory } = useTRPC();
   const { id } = useParams();
   const { setIsBuyWindowShowed, isBuyWindowShowed, setIsCaseShowed } =
     useYourCryptos();
@@ -50,13 +46,12 @@ const CurrencyPage: FC = () => {
   );
 
   useEffect(() => {
-    trpc.currency.getCurrencyHistory
-      .query(currency?.id)
-      .then((data: Data) => {
-        setHistory(data.data);
-      })
-      .catch(console.error);
-  }, [currency?.id]);
+    const fetchData = async () => {
+      const data = await getCurrencyHistory(currency?.id);
+      setHistory(data);
+    };
+    fetchData();
+  }, [currency?.id, getCurrencyHistory]);
 
   const capitalize = () =>
     currency?.id?.toUpperCase()?.slice(0, 1) + currency?.id?.slice(1);
