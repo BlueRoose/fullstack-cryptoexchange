@@ -1,0 +1,34 @@
+.heading {
+  max-width: fit-content;
+  font-size: 36px;
+  align-self: center;
+  color: #ffd600;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@keyframes changeColor {
+  from {
+    color: #ffd600;
+  }
+
+  50% {
+    color: #fff;
+  }
+
+  to {
+    color: #ffd600;
+  }
+}
+
+.animated {
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-name: changeColor;
+  animation-iteration-count: infinite;
+}
+
+.marginBottom {
+  margin-bottom: 20px;
+}

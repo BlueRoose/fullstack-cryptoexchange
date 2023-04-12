@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
+    "storybook": "cd client && npm run storybook",
     "server": "cd server && npm start",
     "cypress": "cypress open",
     "test": "cd client && npm run",

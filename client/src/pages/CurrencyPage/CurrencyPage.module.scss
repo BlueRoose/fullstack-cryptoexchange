@@ -22,30 +22,6 @@
     .left {
       align-self: center;
 
-      @keyframes changeColor {
-        from {
-          color: #ffd600;
-        }
-
-        50% {
-          color: #fff;
-        }
-
-        to {
-          color: #ffd600;
-        }
-      }
-
-      h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        text-align: center;
-        animation-timing-function: linear;
-        animation-duration: 5s;
-        animation-name: changeColor;
-        animation-iteration-count: infinite;
-      }
-
       p {
         font-size: 24px;
         font-weight: bold;

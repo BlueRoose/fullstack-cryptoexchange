@@ -3,6 +3,7 @@ import styles from "./Header.module.scss";
 import { useCurrencies } from "../../hooks/useCurrencies";
 import Case from "../Case/Case";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
+import Heading from "../Heading/Heading";
 
 const Header: FC = () => {
   const { isCaseShowed, setIsCaseShowed } = useYourCryptos();
@@ -34,7 +35,7 @@ const Header: FC = () => {
   return (
     <div className={styles.header}>
       <div className={styles.top}>
-        <h1 className={styles.heading}>Crypto Exchange</h1>
+        <Heading animated={false} marginBottom={false}>Crypto Exchange</Heading>
         <div className={styles.personalInfo}>
           <div className={styles.balance}>
             <p className={styles.price}>{currentBalance.toFixed(2)} USDT</p>

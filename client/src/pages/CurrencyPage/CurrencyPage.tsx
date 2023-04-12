@@ -16,6 +16,7 @@ import {
 } from "chart.js";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import ModalWindow from "../../components/ModalWindow/ModalWindow";
+import Heading from "../../components/Heading/Heading";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import useTRPC from "../../hooks/useTRPC";
@@ -112,7 +113,9 @@ const CurrencyPage: FC = () => {
       {currency ? (
         <div className={styles.main}>
           <div className={styles.left}>
-            <h2>{capitalize() + " " + currency?.symbol}</h2>
+            <Heading animated={true} marginBottom={true}>
+              {capitalize() + " " + currency?.symbol}
+            </Heading>
             <p>Current price:</p>
             <p>
               1 {currency?.symbol} - {Number(currency?.priceUsd).toFixed(7)}{" "}
