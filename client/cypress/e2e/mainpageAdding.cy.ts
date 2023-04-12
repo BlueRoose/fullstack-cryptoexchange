@@ -9,6 +9,7 @@ describe("MainPage Adding", () => {
       .should("have.value", "1");
     cy.get("button").contains("Buy").click();
     cy.get("img").click();
-    cy.get("div[class*='Small']").contains("USDT");
+    cy.get("div[class*='Small']").contains("USDT")
+    cy.compareSnapshot("mainPageAdding");
   });
 });

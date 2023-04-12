@@ -13,5 +13,6 @@ describe("CurrencyPage Adding", () => {
     cy.get("button").contains("Buy").click();
     cy.get("img").click();
     cy.get("div[class*='Small']").contains("BTC");
+    cy.compareSnapshot("currencyPageAdding");
   });
 });

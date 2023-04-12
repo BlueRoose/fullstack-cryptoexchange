@@ -21,5 +21,6 @@ describe("CurrencyPage Adding", () => {
       "not.contain",
       "div[class*='Small']"
     );
+    cy.compareSnapshot("case");
   });
 });
