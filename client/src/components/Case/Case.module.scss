@@ -1,27 +1,15 @@
-.case {
-  width: 300px;
-  height: 300px;
-  background-color: #272727;
-  border-radius: 15px;
-  border: 3px solid #ffd600;
-  position: fixed;
-  top: 9%;
-  right: 1%;
-  z-index: 1;
+.text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffd600;
+  border-bottom: 1px solid #ffd600;
+  margin-bottom: 20px;
+}
 
-  .text {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: #ffd600;
-    border-bottom: 1px solid #ffd600;
-    margin-bottom: 20px;
-  }
-
-  .rows {
-    height: 210px;
-    overflow-y: auto;
-  }
+.rows {
+  height: 210px;
+  overflow-y: auto;
 }
 
 @media (max-width: 810px) {

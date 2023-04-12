@@ -1,0 +1,28 @@
+.wrapper {
+  width: 300px;
+  background-color: #272727;
+  border: 3px solid #ffd600;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.small {
+  height: 300px;
+}
+
+.corner {
+  position: fixed;
+  top: 9%;
+  right: 1%;
+}
+
+.big {
+  height: 400px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

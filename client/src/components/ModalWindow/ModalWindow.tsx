@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useState } from "react";
 import styles from "./ModalWindow.module.scss";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import Button from "../Button/Button";
+import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 interface Props {
   price: string;
@@ -44,10 +45,12 @@ const ModalWindow: FC<Props> = ({ price, symbol }) => {
   };
 
   return (
-    <div className={styles.modalWindow}>
+    <ModalWrapper position="center" type="big">
       <div className={styles.head}>
         <p>Buy crypto</p>
-        <Button type="cross" onClick={handleClickCross}>+</Button>
+        <Button type="cross" onClick={handleClickCross}>
+          +
+        </Button>
       </div>
       <div className={styles.buyArea}>
         <p>Enter amount: </p>
@@ -63,7 +66,7 @@ const ModalWindow: FC<Props> = ({ price, symbol }) => {
           Buy
         </Button>
       </div>
-    </div>
+    </ModalWrapper>
   );
 };
 

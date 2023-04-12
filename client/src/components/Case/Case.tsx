@@ -4,6 +4,7 @@ import SmallCurrencyRow from "../SmallCurrencyRow/SmallCurrencyRow";
 import Button from "../Button/Button";
 import { useYourCryptos } from "../../hooks/useYourCryptos";
 import { Currency } from "../../providers/YourCryptos/types";
+import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 interface Props {
   onChange: (state: boolean) => void;
@@ -17,8 +18,10 @@ const Case: FC<Props> = ({ onChange }) => {
   };
 
   return (
-    <div className={styles.case}>
-      <Button type="cross" onClick={handleCrossClick}>+</Button>
+    <ModalWrapper position="corner" type="small">
+      <Button type="cross" onClick={handleCrossClick}>
+        +
+      </Button>
       <p className={styles.text}>Your cryptos</p>
       <div className={styles.rows}>
         {yourCryptos.map((element: Currency, index: number) => {
@@ -31,7 +34,7 @@ const Case: FC<Props> = ({ onChange }) => {
           );
         })}
       </div>
-    </div>
+    </ModalWrapper>
   );
 };
 
