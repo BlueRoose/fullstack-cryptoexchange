@@ -3,8 +3,8 @@ describe("Pagination", () => {
     cy.visit("http://localhost:3000");
 
     cy.get("button").contains(">").click();
-    cy.get("button").contains("2").should("have.class", "PaginationButton_active__qtBQg");
+    cy.get("button[class*='active']").should("contain", "2");
     cy.get("button").contains("<").click();
-    cy.get("button").contains("1").should("have.class", "PaginationButton_active__qtBQg");
+    cy.get("button[class*='active']").should("contain", "1");
   });
 });
